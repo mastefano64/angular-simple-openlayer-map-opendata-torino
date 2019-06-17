@@ -77,7 +77,7 @@ export class AppComponent implements AfterViewInit {
     layers.push(layer3);
 
     // tslint:disable-next-line:max-line-length
-    const url = 'http://geomap.reteunitaria.piemonte.it/ws/siccms/coto-01/wfsg01/wfs_sicc102_farmacie?service=WFS&version=1.1.0&request=GetFeature&typename=FarmacieComu&srsname=EPSG%3A3857';
+    const url = 'https://geomap.reteunitaria.piemonte.it/ws/siccms/coto-01/wfsg01/wfs_sicc102_farmacie?service=WFS&version=1.1.0&request=GetFeature&typename=FarmacieComu&srsname=EPSG%3A3857';
     const wfssource = new VectorSource({
       loader: (): any => {
         that.http.get(url, { responseType: 'text' }).subscribe(result => {
@@ -110,9 +110,9 @@ export class AppComponent implements AfterViewInit {
     const prop = feature.getProperties();
     const isnotturna = (prop.notturna === 'NO') ? true : false;
     if (isnotturna === true) {
-        iconfile = '/assets/images/farmacia01.png';
+        iconfile = './assets/images/farmacia01.png';
     } else {
-        iconfile = '/assets/images/farmacia02.png';
+        iconfile = './assets/images/farmacia02.png';
     }
     return [
         new Style({
